@@ -16,7 +16,7 @@ exit;
 -- 显示所有数据库
 show databases;
 
--- 创建数据库
+-- 在数据库服务器中创建数据库
 CREATE DATABASE test;
 
 -- 切换数据库
@@ -35,21 +35,24 @@ CREATE TABLE pet (
     death DATE
 );
 
--- 查看数据表结构
+-- 查看数据表结构（表中对应的每个变量名及其类型）
 -- describe pet;
 desc pet;
 
--- 查询表
+-- 查询表（查询表中每一项）
 SELECT * from pet;
 
 -- 插入数据
 INSERT INTO pet VALUES ('puffball', 'Diane', 'hamster', 'f', '1990-03-30', NULL);
+INSERT INTO + 表名 +VALUES (变量值);
 
 -- 修改数据
 UPDATE pet SET name = 'squirrel' where owner = 'Diane';
+UPDATE +表名 + SET +需要修改的变量及修改后的变量值 + where +该项对应的任一变量及其值;
 
 -- 删除数据
 DELETE FROM pet where name = 'squirrel';
+DELETE FROM + 表名 + where + 该项任意变量及其值；
 
 -- 删除表
 DROP TABLE myorder;
