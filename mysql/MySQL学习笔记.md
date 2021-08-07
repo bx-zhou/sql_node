@@ -95,15 +95,30 @@ ALTER TABLE user MODIFY id INT PRIMARY KEY;
 ALTER TABLE user drop PRIMARY KEY;
 ```
 
-### 唯一主键
-
+### 唯一约束
+-- 唯一约束可以为空，主键约束不可以！
 ```mysql
--- 建表时创建唯一主键
+-- 建表时创建唯一约束
 CREATE TABLE user (
     id INT,
     name VARCHAR(20),
     UNIQUE(name)
 );
+
+-- 有多个唯一约束
+CREATE TABLE user (
+    id INT,
+    name VARCHAR(20),
+    UNIQUE(id,name)
+);
+一起定义则要求不能完全相同即可,类似联合主键
+CREATE TABLE user (
+    id INT unique,
+    name VARCHAR(20) unique,
+    
+);
+分开定义则要求任一变量都不能相同,区别于联合主键
+
 
 -- 添加唯一主键
 -- 如果建表时没有设置唯一建，还可以通过SQL语句设置（两种方式）：
